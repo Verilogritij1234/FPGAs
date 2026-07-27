@@ -1,0 +1,1 @@
+iverilog -o blinky_led_tb.out blinky_led.v blinky_led_tb.v

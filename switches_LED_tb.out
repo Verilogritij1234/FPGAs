@@ -1,0 +1,52 @@
+#! /mingw64/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "C:\msys64\mingw64\lib\ivl\system.vpi";
+:vpi_module "C:\msys64\mingw64\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\msys64\mingw64\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\msys64\mingw64\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\msys64\mingw64\lib\ivl\va_math.vpi";
+S_00000161dd0dcbd0 .scope module, "stimulus" "stimulus" 2 2;
+ .timescale -9 -12;
+P_00000161dd0daec0 .param/l "N" 0 2 3, +C4<00000000000000000000000000000100>;
+v00000161dd0d43a0_0 .var "i_switch", 3 0;
+v00000161dd0d4440_0 .net "o_led", 3 0, L_00000161dd0b1b10;  1 drivers
+S_00000161dd0dcd60 .scope module, "uut" "switches_to_LED" 2 7, 3 1 0, S_00000161dd0dcbd0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 4 "i_switch";
+    .port_info 1 /OUTPUT 4 "o_led";
+P_00000161dd0daf40 .param/l "N" 0 3 1, +C4<00000000000000000000000000000100>;
+L_00000161dd0b1b10 .functor BUFZ 4, v00000161dd0d43a0_0, C4<0000>, C4<0000>, C4<0000>;
+v00000161dd0dcef0_0 .net "i_switch", 3 0, v00000161dd0d43a0_0;  1 drivers
+v00000161dd0d4300_0 .net "o_led", 3 0, L_00000161dd0b1b10;  alias, 1 drivers
+    .scope S_00000161dd0dcbd0;
+T_0 ;
+    %vpi_call 2 10 "$dumpfile", "dump.vcd" {0 0 0};
+    %vpi_call 2 11 "$dumpvars", 32'sb00000000000000000000000000000000, S_00000161dd0dcbd0 {0 0 0};
+    %vpi_call 2 12 "$monitor", $time, "i_switch = %b,o_led = %b", v00000161dd0d43a0_0, v00000161dd0d4440_0 {0 0 0};
+    %delay 5000, 0;
+    %pushi/vec4 0, 0, 4;
+    %store/vec4 v00000161dd0d43a0_0, 0, 4;
+    %delay 5000, 0;
+    %pushi/vec4 4, 0, 4;
+    %store/vec4 v00000161dd0d43a0_0, 0, 4;
+    %delay 5000, 0;
+    %pushi/vec4 10, 0, 4;
+    %store/vec4 v00000161dd0d43a0_0, 0, 4;
+    %delay 5000, 0;
+    %pushi/vec4 5, 0, 4;
+    %store/vec4 v00000161dd0d43a0_0, 0, 4;
+    %delay 5000, 0;
+    %pushi/vec4 10, 0, 4;
+    %store/vec4 v00000161dd0d43a0_0, 0, 4;
+    %delay 10000, 0;
+    %vpi_call 2 19 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "switches_LED_tb.v";
+    "switches_LED.v";
