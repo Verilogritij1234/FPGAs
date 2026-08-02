@@ -1,3 +1,8 @@
+Repository Name: digital-logic-fpga-asic-portfolio
+Repository Description: A comprehensive collection of Verilog RTL designs, testbenches, Intel DE1-SoC FPGA implementations, and ASIC physical design flows utilizing Yosys and OpenROAD.
+
+-----------------------------------------------------------------------------
+
 # Digital Logic & RTL-to-GDSII Portfolio 🚀
 
 This repository contains a collection of foundational and intermediate digital logic circuits implemented in Verilog. It serves as a dual-purpose workspace for both **FPGA prototyping** and **ASIC logic synthesis/physical design**. 
@@ -35,3 +40,15 @@ Compile the RTL and Testbench using your preferred simulator. For Icarus Verilog
 ```bash
 iverilog -o sim_out rtl_module.v rtl_module_tb.v
 vvp sim_out
+```
+
+### ASIC Flow (OpenROAD/Yosys)
+Execute the provided TCL scripts to run the RTL-to-GDSII flow:
+```bash
+yosys -c my_flow.tcl
+openroad my_openroad_flow.tcl
+```
+*Note: Ensure your environment variables for the targeted PDKs (Sky130/Nangate45) are correctly configured.*
+
+## 📚 Documentation
+Reference the included `DE1-SoC_User_manual_revf.pdf` for specific pin assignments and hardware constraints when targeting the Intel FPGA.
